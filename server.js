@@ -8,7 +8,9 @@ var History = require("./models/history");
 
 // Create a new express app
 var app = express();
+
 // Sets an initial port. We'll use this later in our listener
+// will work deployed or locally
 var PORT = process.env.PORT || 3000;
 
 // Run Morgan for Logging
@@ -41,7 +43,7 @@ app.get("/", function(req, res) {
 app.get("/api", function(req, res) {
 
     // This GET request will search for the latest clickCount
-    Click.find({}).exec(function(err, doc) {
+    History.find({}).exec(function(err, doc) {
 
         if (err) {
             console.log(err);
@@ -52,6 +54,13 @@ app.get("/api", function(req, res) {
     });
 });
 
+app.post("/api", function(req, res) {
+    var history = req.body.term;
+
+    History.save({
+        history: history
+    });
+});
 
 // Starting our express server
 app.listen(PORT, function() {

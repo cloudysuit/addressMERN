@@ -20,7 +20,15 @@ var helpers = {
       return response.data.results[0].formatted;
     });
 
-  }
+  },
+
+    saveHistory: function(historyData){
+      return axios.post("/api", historyData);
+    },
+
+    getHistory: function(historyData){
+      return axios.post("/api", historyData);
+    }
 
 };
 
