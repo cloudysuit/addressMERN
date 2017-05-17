@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var HistorySchema = new Schema({
+var History = new Schema({
 	search: {
 		type: String
 	},
@@ -12,6 +12,6 @@ var HistorySchema = new Schema({
 	}
 });
 
-var Click = mongoose.model("History", HistorySchema);
+var Click = mongoose.model("History", History);
 
 module.exports = History;

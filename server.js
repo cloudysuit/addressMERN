@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+var History = require("./models/history");
+
 // Create a new express app
 var app = express();
 // Sets an initial port. We'll use this later in our listener
@@ -18,7 +20,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
-mongoose.connect("");
+mongoose.connect("mongodb://localhost/history");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
