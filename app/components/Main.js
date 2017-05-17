@@ -67,6 +67,13 @@ var Main = React.createClass({
           </div>
 
         </div>
+        <div className="row">
+          <div className="col-md-12">
+
+            <History history={this.state.history} />
+
+          </div>
+        </div>
 
       </div>
     );
